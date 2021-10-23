@@ -1,1 +1,148 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Ubuntu&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+$color2: #8338ec;
+$color3: #EF476F;
+$color4: #FFD166;
+$color5: #06D6A0;
+$color6: #118AB2;
+$color7: #11101d;
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+.bg-color1{
+    background: white;
+    color: black; 
+    
+    input {
+        background: darken($color: white, $amount: 5);        
+        color: black; 
+    }
+    textarea{
+        background: darken($color: white, $amount: 5);  
+        color: black; 
+    }
+}
+
+.bg-color2{
+    background: $color2;
+    color: white;   
+    
+    input {
+        background: lighten($color: $color2, $amount: 5);        
+        color: white; 
+    }
+    textarea{
+        background: lighten($color: $color2, $amount: 5);  
+        color: white; 
+    }
+
+    input::placeholder{        
+        color: #bbb; 
+    }
+    textarea::placeholder{        
+        color:#bbb; 
+    }
+}
+.bg-color3{
+    background: $color3;
+    color: white;   
+
+    input {
+        background: lighten($color: $color3, $amount: 5);        
+        color: white; 
+    }
+    textarea{
+        background: lighten($color: $color3, $amount: 5);  
+        color: white; 
+    }
+
+    input::placeholder{        
+        color: #bbb; 
+    }
+    textarea::placeholder{        
+        color:#bbb; 
+    }
+}
+.bg-color4{
+    background: $color4;
+    color: black; 
+    
+    input {
+        background: lighten($color: $color4, $amount: 5);        
+        color: black; 
+    }
+    textarea{
+        background: lighten($color: $color4, $amount: 5);  
+        color: black; 
+    }
+}
+.bg-color5{
+    background: $color5;
+    color: black;    
+
+    input {
+        background: lighten($color: $color5, $amount: 5);        
+        color: black; 
+    }
+    textarea{
+        background: lighten($color: $color5, $amount: 5);  
+        color: black; 
+    }
+
+}
+.bg-color6{
+    background: $color6;
+    color: white; 
+    
+    input {
+        background: lighten($color: $color6, $amount: 5);        
+        color: white; 
+    }
+    textarea{
+        background: lighten($color: $color6, $amount: 5);  
+        color: white; 
+    }
+
+    input::placeholder{        
+        color: #bbb; 
+    }
+    textarea::placeholder{        
+        color:#bbb; 
+    }
+}
+.bg-color7{
+    background: $color7;
+    color: white;  
+    
+    input {
+        background: lighten($color: $color7, $amount: 5);        
+        color: white; 
+    }
+    textarea{
+        background: lighten($color: $color7, $amount: 5);  
+        color: white; 
+    }
+
+    input::placeholder{        
+        color:#bbb; 
+    }
+    textarea::placeholder{        
+        color:#bbb; 
+    }
+
+    .color.active{
+        box-shadow: 0 0 0px 3px rgba($color: #fff, $alpha: 0.3);
+    }
+}
+
+.btn{
+    border-radius: 12px;
+}

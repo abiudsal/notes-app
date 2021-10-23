@@ -1,0 +1,15 @@
+<div #card class="card-content" (click)="onClick()" [ngClass]="{'bg-color1':color==1 ,'bg-color2':color==2,'bg-color3':color==3, 'bg-color4':color==4, 'bg-color5':color==5, 'bg-color6':color==6, 'bg-color7':color==7}">
+    <div class="card-title">
+        {{title}}
+    </div>
+    <div class="card-body">
+        <p>
+            {{body}}
+        </p>
+    </div>
+    <div class="footer">
+        <i class='bx bx-pin' (click)="onPin($event)"></i>
+        <i class='bx bx-heart' (click)="onFav($event)"></i>
+        <i class='bx bx-trash-alt' (click)="onDelete($event)"></i>
+    </div>
+</div>

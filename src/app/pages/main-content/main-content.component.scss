@@ -1,0 +1,156 @@
+.search-bar{
+    display: flex;
+    justify-content: center;
+
+    input{
+        flex: 100%;
+        max-width: 90%;
+    }
+}
+
+.message{ 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    span{
+        margin-top: 20px;
+        font-size: 20px;
+        color: lighten($color: #11101d, $amount: 20);
+    }
+}
+
+
+.element-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.element {
+    flex: 20%;
+    max-width: 20%;
+    padding: 0 4px;
+}
+
+.column app-card {
+    margin-top: 8px;
+    vertical-align: middle;
+}
+
+.add-btn{
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 910;
+    .bx-plus{
+        padding: 20px;        
+    
+        border-radius: 30px;
+        background: #8338ec;
+        color: white;
+        font-size: 24px;
+
+        box-shadow: 0 0 10px 4px rgba($color: #000000, $alpha: 0.1);
+    
+        transition: all 0.3s ease-in-out;        
+    }
+        
+    .bx-plus:hover{
+        cursor: pointer;
+        transform: scale(1.2,1.2);
+        //border-radius: 20px;
+    }
+}
+
+
+  
+  /* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 1200px) {
+    .element {
+        flex: 25%;
+        max-width: 25%;
+    }
+}
+  /* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 1000px) {
+    .element {
+        flex: 33%;
+        max-width: 33%;
+    }
+}
+  /* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .element {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .element {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+
+
+/*MODAL*/
+
+
+.modal-content{
+    //background: #eee;
+
+    .modal-header{
+        box-shadow: 0 0 5px 2px rgba($color: #000000, $alpha: 0.1);
+    }
+
+    .modal-body{
+        .title input{
+            width: 100%;
+            border: none;
+            //transition: all 0.2s ease-in-out;
+        }
+        
+        .title input:hover{
+            //transform: scale(1.01, 1.01);
+        }
+
+        .body textarea{
+            width: 100%;
+            border: none;
+            //transition: all 0.2s ease-in-out;
+        }
+
+        .body textarea:hover{
+            //transform: scale(1.01, 1.01);
+        }
+
+        .spacer{
+            height: 3px;
+        }
+
+        .colors-content{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .color{
+                height: 30px;
+                width: 30px;
+                border-radius: 12px;
+                margin: 5px;
+                box-shadow: 0 0 5px 2px rgba($color: #000000, $alpha: 0.1);
+                transition: all 0.2s ease-in-out;
+            }
+
+            .color.active{
+                box-shadow: 0 0 0px 3px rgba($color: #000000, $alpha: 0.3);
+            }
+
+            .color:hover{
+                transform: scale(1.05, 1.05);
+                cursor: pointer;
+            }
+        }
+    }
+}

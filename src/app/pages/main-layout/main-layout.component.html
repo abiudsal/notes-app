@@ -1,0 +1,96 @@
+<div class="sidebar" [ngClass]="{'active': sidebarActive}">
+    <div class="logo-content">
+        <div class="logo">
+            <i class='bx bx-cube-alt'></i>
+            <div class="logo-name">Notes</div>
+        </div>
+        <i class='bx bx-menu' id="toggle" (click)="toggleSidebar()"></i>
+    </div>  
+    <ul class="nav-list">
+<!--         <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search...">                
+            <span class="tooltip">Search</span>
+        </li> -->
+        <li>
+            <a [routerLink]="['all']" [routerLinkActive]="['active']">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links-name">All</span>
+            </a>
+            <span class="tooltip">All</span>
+        </li>
+        <li>
+            <a [routerLink]="['notes']" [routerLinkActive]="['active']">
+                <i class='bx bx-note'></i>
+                <span class="links-name">Notes</span>
+            </a>
+            <span class="tooltip">Notes</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-task' ></i>
+                <span class="links-name">Tasks</span>
+            </a>
+            <span class="tooltip">Tasks</span>
+        </li>
+        <li>
+            <a [routerLink]="['favs']" [routerLinkActive]="['active']">
+                <i class='bx bx-heart' ></i>
+                <span class="links-name">Favorites</span>
+            </a>
+            <span class="tooltip">Favorites</span>
+        </li>
+
+        <br>
+
+        <li>
+            <a [routerLink]="['tags']" [routerLinkActive]="['active']">
+                <i class='bx bx-tag' ></i>
+                <span class="links-name">Tags</span>
+            </a>
+            <span class="tooltip">Tags</span>
+        </li>
+        <li>
+            <a [routerLink]="['trash']" [routerLinkActive]="['active']">
+                <i class='bx bx-trash-alt' ></i>
+                <span class="links-name">Trash</span>
+            </a>
+            <span class="tooltip">Trash</span>
+        </li>
+
+        <!-- <li>
+            <a href="#">
+                <i class='bx bx-pie-chart-alt' ></i>
+                <span class="links-name">Saved</span>
+            </a>
+            <span class="tooltip">Saved</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-cog' ></i>
+                <span class="links-name">Settings</span>
+            </a>
+            <span class="tooltip">Setting</span>
+        </li> -->
+    </ul> 
+    
+    <div class="profile-content">
+        <div class="profile">
+            <div class="profile-details">
+                <img src="" alt="">
+                <div class="name-job">
+                    <div class="name">Usuario</div>
+                    <div class="job">Puesto</div>
+                </div>
+            </div>
+            <i class='bx bx-log-out' id="log-out"></i>
+        </div>
+    </div>
+
+</div>
+
+<div class="home-content">
+    <div class="text">
+        <router-outlet></router-outlet>
+    </div>
+</div>

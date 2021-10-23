@@ -1,0 +1,87 @@
+<div class="container">
+    <div class="search-bar">
+        <input type="text" name="search-input" id="Search...">
+    </div>
+    <div class="content">
+        <div class="element-container">
+            <div class="element" *ngFor="let note of pinned">
+                <app-card
+                [title]="note.title"
+                [body]="note.body"
+                [color]="note.color"
+                [id]="note.id"
+                (edit)="openForEdit($event)"
+                (pin)="pin($event)"
+                (delete)="delete($event)"
+                (fav)="fav($event)"
+                ></app-card>
+            </div>                           
+        </div>
+        <div class="message" *ngIf="display.length==0">
+            <span>Nothing to show...</span>
+        </div>
+
+        <div class="element-container">
+            <div class="element" *ngFor="let note of display">
+                <app-card
+                [title]="note.title"
+                [body]="note.body"
+                [color]="note.color"
+                [id]="note.id"
+                (edit)="openForEdit($event)"
+                (pin)="pin($event)"
+                (delete)="delete($event)"
+                (fav)="fav($event)"
+                ></app-card>
+            </div>                           
+        </div>
+    </div>
+
+    <div class="add-btn" (click)="openForCreate()">
+        <i class='bx bx-plus' ></i>
+    </div>
+
+    <!-- <button class="btn" (click)="mostrarModal()">Abrir</button> -->
+
+    <ng-template #modal let-modal>
+        <div class="modal-content rounded-0" [ngClass]="{'bg-color1':color==1 ,'bg-color2':color==2,'bg-color3':color==3, 'bg-color4':color==4, 'bg-color5':color==5, 'bg-color6':color==6, 'bg-color7':color==7}">
+            <div class="modal-header">
+                <h5 class="modal-title">{{modalTitle}}</h5>
+                <button type="button" class="close btn btn-danger" data-dismiss="modal" aria-label="Close" (click)="modal.close('Cerrado desde la ventana')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="note-content">
+                    <div class="title">
+                        <input type="text" name="title" placeholder="Title..." [(ngModel)]="title">
+                    </div>
+
+                    <div class="spacer"></div>
+                    
+                    <div class="body">
+                        <textarea name="body" rows="6" placeholder="Add a note..." [(ngModel)]="body"></textarea>
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <div class="colors-content">
+                        <div class="color bg-color1" (click)="setColor(1)" [ngClass]="{'active':color==1}"></div>
+                        <div class="color bg-color2" (click)="setColor(2)" [ngClass]="{'active':color==2}"></div>
+                        <div class="color bg-color3" (click)="setColor(3)" [ngClass]="{'active':color==3}"></div>
+                        <div class="color bg-color4" (click)="setColor(4)" [ngClass]="{'active':color==4}"></div>
+                        <div class="color bg-color5" (click)="setColor(5)" [ngClass]="{'active':color==5}"></div>
+                        <div class="color bg-color6" (click)="setColor(6)" [ngClass]="{'active':color==6}"></div>
+                        <div class="color bg-color7" (click)="setColor(7)" [ngClass]="{'active':color==6}"></div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.close('No')">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="modal.close(true)">Done</button>
+            </div>
+        </div>
+    </ng-template>
+    
+</div>
