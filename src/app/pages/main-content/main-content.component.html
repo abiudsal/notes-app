@@ -1,8 +1,13 @@
 <div class="container">
     <div class="search-bar">
-        <input type="text" name="search-input" id="Search...">
+        <input type="text" name="search-input" placeholder="Filter..." (keyup)="search()" [(ngModel)]="searchValue">
     </div>
+
     <div class="content">
+        <div class="message" *ngIf="pinned.length>0">
+            <span>Pinned notes</span>
+        </div>
+
         <div class="element-container">
             <div class="element" *ngFor="let note of pinned">
                 <app-card
@@ -17,8 +22,21 @@
                 ></app-card>
             </div>                           
         </div>
-        <div class="message" *ngIf="display.length==0">
+
+        <div class="message" *ngIf="display.length==0 && searchValue.length>0">
             <span>Nothing to show...</span>
+        </div>
+
+        <div class="message" *ngIf="display.length==0 && searchValue.length==0 && (path=='notes' || path=='all')">
+            <span>Add a note to start...</span>
+        </div>
+
+        <div class="message" *ngIf="display.length==0 && path=='favs'">
+            <span>Add a note to Favorites by pressing on the Heart button on it...</span>
+        </div>
+
+        <div class="message" *ngIf="display.length==0 && path=='trash'">
+            <span>This is so clean, I like it...</span>
         </div>
 
         <div class="element-container">

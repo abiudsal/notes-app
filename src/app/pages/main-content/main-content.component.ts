@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, TemplateRef } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NoteService } from '../../shared/note.service';
 import { Note } from '../../models/Note';
@@ -25,6 +25,8 @@ export class MainContentComponent implements OnInit {
   public isNew = false;
 
   public path:string = ""
+
+  public searchValue = ""
   @ViewChild("modal", {static: false}) myModalInfo!: TemplateRef<any>;
 
 
@@ -70,9 +72,6 @@ export class MainContentComponent implements OnInit {
   }
 
   pin(event: any){
-    //console.log("pin")
-
-    //console.log(event)
     this.noteService.togglePin(event)
     this.notes = this.noteService.getAll()
 
@@ -80,8 +79,6 @@ export class MainContentComponent implements OnInit {
   }
 
   fav(event: any){
-    //console.log(event)
-    //console.log("fav")
     this.noteService.toggleFav(event)
     this.notes = this.noteService.getAll()
 
@@ -89,9 +86,6 @@ export class MainContentComponent implements OnInit {
   }
 
   delete(event: any){
-    //console.log("delete")
-
-    //console.log(event)
     this.noteService.delete(event)
     this.notes = this.noteService.getAll()
 
@@ -100,25 +94,19 @@ export class MainContentComponent implements OnInit {
 
   openForEdit(event: any){
     this.isNew = false
-    //console.log(event)
     this.modalTitle = "Edit note"
     this.openedNote = event
 
-    //console.log("edicion de nota")
     this.title = this.notes[event].title
     this.body = this.notes[event].body
     this.color = this.notes[event].color
     this.mostrarModal()
-
-    //this.updateList()
   }
 
   openForCreate(){
     this.isNew = true
     this.modalTitle = "Create note"
     this.mostrarModal()
-
-    //this.updateList()
   }
 
   save(){
@@ -129,7 +117,6 @@ export class MainContentComponent implements OnInit {
     this.body = ""
     this.color = 1
 
-    //console.log("creacion de nota")
     this.updateList()
   }
 
@@ -141,8 +128,23 @@ export class MainContentComponent implements OnInit {
     this.body = ""
     this.color = 1
 
-    //console.log("creacion de nota")
     this.updateList()
+  }
+
+  search(){
+    if(this.searchValue.length>0){
+      let filteredNotes: Array<Note> = []
+      this.saved.forEach((note)=>{
+        if(note.title.includes(this.searchValue) || note.body.includes(this.searchValue)){
+          filteredNotes.push(note)
+        }
+      })
+      this.display = filteredNotes
+    }
+    else{
+      this.display = this.saved
+    }
+    //console.log("hu")
   }
 
   updateList(){    

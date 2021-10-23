@@ -5,6 +5,15 @@
     input{
         flex: 100%;
         max-width: 90%;
+
+        border: none;
+        border-radius: 12px;
+        
+        background: #eee;
+        margin: 15px 0;
+        font-size: 18px;
+        padding: 5px;
+        padding-left: 20px;
     }
 }
 
@@ -110,19 +119,11 @@
             border: none;
             //transition: all 0.2s ease-in-out;
         }
-        
-        .title input:hover{
-            //transform: scale(1.01, 1.01);
-        }
 
         .body textarea{
             width: 100%;
             border: none;
             //transition: all 0.2s ease-in-out;
-        }
-
-        .body textarea:hover{
-            //transform: scale(1.01, 1.01);
         }
 
         .spacer{

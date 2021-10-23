@@ -43,14 +43,17 @@ export class NoteService {
 
     delete(id: number){
         this.notes[id].deleted = true
+        this.saveInLocalStorage()
     }
 
     togglePin(id: number){
         this.notes[id].pinned = !this.notes[id].pinned
+        this.saveInLocalStorage()
     }
     
     toggleFav(id: number){
-        this.notes[id].fav = !this.notes[id].fav        
+        this.notes[id].fav = !this.notes[id].fav  
+        this.saveInLocalStorage()      
     }
 
     loadFromLocalStorage() {
