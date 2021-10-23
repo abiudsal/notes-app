@@ -4,17 +4,15 @@
     </div>
 
     <div class="content">
-        <div class="message" *ngIf="pinned.length>0">
-            <span>Pinned notes</span>
+
+        <div class="message-section" *ngIf="pinned.length>0 && path!='trash' && path!='saves' && searchValue.length==0">
+            <span>Pinned</span>
         </div>
 
-        <div class="element-container">
+        <div class="element-container" *ngIf="path!='trash' && path!='saves' && searchValue.length==0">
             <div class="element" *ngFor="let note of pinned">
                 <app-card
-                [title]="note.title"
-                [body]="note.body"
-                [color]="note.color"
-                [id]="note.id"
+                [note]="note"
                 (edit)="openForEdit($event)"
                 (pin)="pin($event)"
                 (delete)="delete($event)"
@@ -24,28 +22,29 @@
         </div>
 
         <div class="message" *ngIf="display.length==0 && searchValue.length>0">
-            <span>Nothing to show...</span>
+            <span>No matches...</span>
         </div>
 
-        <div class="message" *ngIf="display.length==0 && searchValue.length==0 && (path=='notes' || path=='all')">
+        <div class="message" *ngIf="display.length==0 && searchValue.length==0 && (path=='notes' || path=='all') && pinned.length==0">
             <span>Add a note to start...</span>
         </div>
 
-        <div class="message" *ngIf="display.length==0 && path=='favs'">
-            <span>Add a note to Favorites by pressing on the Heart button on it...</span>
+        <div class="message" *ngIf="display.length==0 && path=='saves'">
+            <span>Add a note to Saves by pressing on the Heart button on it...</span>
         </div>
 
-        <div class="message" *ngIf="display.length==0 && path=='trash'">
+        <div class="message" *ngIf="display.length==0 && path=='trash' && searchValue.length==0">
             <span>This is so clean, I like it...</span>
+        </div>
+
+        <div class="message-section" *ngIf="pinned.length>0 && display.length>0 && path!='trash' && path!='saves' && searchValue.length==0">
+            <span>Others</span>
         </div>
 
         <div class="element-container">
             <div class="element" *ngFor="let note of display">
                 <app-card
-                [title]="note.title"
-                [body]="note.body"
-                [color]="note.color"
-                [id]="note.id"
+                [note]="note"
                 (edit)="openForEdit($event)"
                 (pin)="pin($event)"
                 (delete)="delete($event)"
@@ -53,13 +52,12 @@
                 ></app-card>
             </div>                           
         </div>
+
     </div>
 
     <div class="add-btn" (click)="openForCreate()">
         <i class='bx bx-plus' ></i>
     </div>
-
-    <!-- <button class="btn" (click)="mostrarModal()">Abrir</button> -->
 
     <ng-template #modal let-modal>
         <div class="modal-content rounded-0" [ngClass]="{'bg-color1':color==1 ,'bg-color2':color==2,'bg-color3':color==3, 'bg-color4':color==4, 'bg-color5':color==5, 'bg-color6':color==6, 'bg-color7':color==7}">

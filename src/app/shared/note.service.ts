@@ -42,7 +42,7 @@ export class NoteService {
     }
 
     delete(id: number){
-        this.notes[id].deleted = true
+        this.notes[id].deleted = !this.notes[id].deleted
         this.saveInLocalStorage()
     }
 

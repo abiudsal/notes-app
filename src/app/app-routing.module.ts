@@ -8,7 +8,7 @@ const routes: Routes = [
     {path:"", redirectTo: 'all', pathMatch: 'full'},
     {path:"all", component: MainContentComponent},
     {path:"notes", component: MainContentComponent},
-    {path:"favs", component: MainContentComponent},
+    {path:"saves", component: MainContentComponent},
     {path:"tags", component: MainContentComponent},
     {path:"trash", component: MainContentComponent},
     {path:"*", component: MainContentComponent},

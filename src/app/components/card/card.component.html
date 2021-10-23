@@ -1,15 +1,37 @@
-<div #card class="card-content" (click)="onClick()" [ngClass]="{'bg-color1':color==1 ,'bg-color2':color==2,'bg-color3':color==3, 'bg-color4':color==4, 'bg-color5':color==5, 'bg-color6':color==6, 'bg-color7':color==7}">
+<div #card class="card-content" (click)="onClick()" [ngClass]="{'bg-color1':note.color==1 ,'bg-color2':note.color==2,'bg-color3':note.color==3, 'bg-color4':note.color==4, 'bg-color5':note.color==5, 'bg-color6':note.color==6, 'bg-color7':note.color==7}">
     <div class="card-title">
-        {{title}}
+        {{note.title}}
     </div>
     <div class="card-body">
         <p>
-            {{body}}
+            {{note.body}}
         </p>
     </div>
     <div class="footer">
-        <i class='bx bx-pin' (click)="onPin($event)"></i>
-        <i class='bx bx-heart' (click)="onFav($event)"></i>
-        <i class='bx bx-trash-alt' (click)="onDelete($event)"></i>
+        <div class="footer-element" *ngIf="!note.deleted">
+            <i class='bx bx-pin' (click)="onPin($event)">
+                <div class="hint">
+                    <span *ngIf="!note.pinned">Pin</span> 
+                    <span *ngIf="note.pinned">Unpin</span> 
+                </div>
+            </i>            
+        </div>
+
+        <div class="footer-element" *ngIf="!note.deleted">
+            <i class='bx bx-heart' (click)="onFav($event)">
+                <div class="hint">
+                    <span *ngIf="!note.fav">Save</span> 
+                    <span *ngIf="note.fav">Unsave</span> 
+                </div>                
+            </i>
+        </div>
+        <div class="footer-element">
+            <i class='bx bx-trash-alt' (click)="onDelete($event)">
+                <div class="hint">
+                    <span *ngIf="!note.deleted">Delete</span> 
+                    <span *ngIf="note.deleted">Restore</span> 
+                </div>
+            </i>            
+        </div>
     </div>
 </div>

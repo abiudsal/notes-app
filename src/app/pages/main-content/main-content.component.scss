@@ -28,6 +28,17 @@
     }
 }
 
+.message-section{ 
+    width: 100%;
+    display: flex;
+    
+    span{
+        margin-top: 20px;
+        font-size: 16px;
+        color: lighten($color: #11101d, $amount: 40);
+    }
+}
+
 
 .element-container{
     display: flex;
@@ -54,7 +65,7 @@
         padding: 20px;        
     
         border-radius: 30px;
-        background: #8338ec;
+        background: #11101d;
         color: white;
         font-size: 24px;
 
