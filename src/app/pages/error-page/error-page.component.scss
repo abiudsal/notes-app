@@ -1,0 +1,21 @@
+.icon i{
+    font-size: 100px;
+    color: #888;
+}
+
+.container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .num404{
+        font-size: 75px;
+    }
+
+    .message{
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}

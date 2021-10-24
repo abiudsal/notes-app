@@ -8,6 +8,7 @@ import { MainContentComponent } from './pages/main-content/main-content.componen
 import { CardComponent } from './components/card/card.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     MainLayoutComponent,
     MainContentComponent,
     CardComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,
