@@ -40,7 +40,7 @@ export class MainContentComponent implements OnInit {
     this.route.url.subscribe(params => {
       if(params[0]){
         this.path = params[0].path;
-        console.log(params[0].path);
+        //console.log(params[0].path);
       }      
     })
 
@@ -55,7 +55,7 @@ export class MainContentComponent implements OnInit {
 
   mostrarModal(){
     this.modalService.open(this.myModalInfo, { centered: true }).result.then( r => {
-      console.log("Tu respuesta ha sido: " + r);
+      //console.log("Tu respuesta ha sido: " + r);
       if(r==true){
         if(this.isNew){
           this.create()
@@ -64,8 +64,16 @@ export class MainContentComponent implements OnInit {
           this.save()
         }
       }
+      else{
+        this.title=""
+        this.body=""
+        this.color=1        
+      }
     }, error => {
-      console.log(error);
+      //console.log(error);
+      this.title=""
+      this.body=""
+      this.color=1 
     });
   }
 

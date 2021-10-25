@@ -6,8 +6,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 const routes: Routes = [
   {path: "", component: MainLayoutComponent, children:[
-    {path:"", redirectTo: 'all', pathMatch: 'full'},
-    {path:"all", component: MainContentComponent},
+    {path:"", redirectTo: 'notes', pathMatch: 'full'},
     {path:"notes", component: MainContentComponent},
     {path:"saves", component: MainContentComponent},
     {path:"tags", component: MainContentComponent},

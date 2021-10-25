@@ -95,7 +95,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modal.close('No')">Cancel</button>
-                <button type="button" class="btn btn-primary" (click)="modal.close(true)">Done</button>
+                <button type="button" class="btn btn-primary" (click)="modal.close(true)" [disabled]="title.length==0">Done</button>
             </div>
         </div>
     </ng-template>
