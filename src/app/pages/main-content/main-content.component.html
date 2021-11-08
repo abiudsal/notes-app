@@ -34,7 +34,7 @@
         </div>
 
         <div class="message" *ngIf="display.length==0 && path=='trash' && searchValue.length==0">
-            <span>This is so clean, I like it...</span>
+            <span>This is so clean...</span>
         </div>
 
         <div class="message-section" *ngIf="pinned.length>0 && display.length>0 && path!='trash' && path!='saves' && searchValue.length==0">
@@ -88,7 +88,7 @@
                         <div class="color bg-color4" (click)="setColor(4)" [ngClass]="{'active':color==4}"></div>
                         <div class="color bg-color5" (click)="setColor(5)" [ngClass]="{'active':color==5}"></div>
                         <div class="color bg-color6" (click)="setColor(6)" [ngClass]="{'active':color==6}"></div>
-                        <div class="color bg-color7" (click)="setColor(7)" [ngClass]="{'active':color==6}"></div>
+                        <div class="color bg-color7" (click)="setColor(7)" [ngClass]="{'active':color==7}"></div>
                     </div>
                 </div>
                 
