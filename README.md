@@ -120,7 +120,7 @@ Para restaurar una nota, solo se debe presionar el botón con símbolo de `conte
 
 ## Aplicación
 
-Se puede probar la aplicación [aquí](https://abiudsal.github.io/memory-game/)
+Se puede probar la aplicación [aquí](https://abiudsal.github.io/notes-app/)
 
 ## Uso de Angular (autogenerado)
 
